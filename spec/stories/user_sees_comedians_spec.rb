@@ -40,9 +40,17 @@ describe 'User visits comedians page' do
     it 'should display the comedians specials' do
       visit '/comedians'
 
-      within('#comedians tbody tr:first-child td:last-child') do
+      within('#comedians tbody tr:first-child td:nth-child(3)') do
         expect(find('ul')).to have_content('War Paint')
         expect(find('ul')).to have_content('Freezing Hot')
+      end
+    end
+
+    it 'should display the count of specials for each comedian' do
+      visit '/comedians'
+
+      within('#comedians tbody tr:first-child') do
+        expect(find('td:last-child')).to have_content('3')
       end
     end
 

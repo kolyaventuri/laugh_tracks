@@ -1,10 +1,11 @@
 <h2>Average Age: <%= Comedian.average_age %>
-  
+
 <table id="comedians">
   <thead>
     <th>Name</th>
     <th>Age</th>
     <th>Specials</th>
+    <th>Number of Specials</th>
   </thead>
 
   <tbody>
@@ -19,6 +20,7 @@
             <% end %>
           </ul>
         </td>
+        <td><%= comedian.specials.length %></td>
       </tr>
     <% end %>
   </tbody>
