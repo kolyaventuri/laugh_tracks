@@ -9,6 +9,8 @@ Capybara.save_and_open_page_path = 'tmp/capybara'
 
 DatabaseCleaner.strategy = :truncation
 
+ActiveRecord::Base.logger.level = 1
+
 RSpec.configure do |c|
   c.include Capybara::DSL
 
