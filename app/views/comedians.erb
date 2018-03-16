@@ -1,0 +1,15 @@
+<table id="comedians">
+  <thead>
+    <th>Name</th>
+    <th>Age</th>
+  </thead>
+
+  <tbody>
+    <% @comedians.find_each do |comedian| %>
+      <tr>
+        <td><%= comedian.name %></td>
+        <td><%= comedian.age %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
