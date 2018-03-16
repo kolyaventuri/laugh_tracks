@@ -2,6 +2,7 @@
   <thead>
     <th>Name</th>
     <th>Age</th>
+    <th>Specials</th>
   </thead>
 
   <tbody>
@@ -9,6 +10,13 @@
       <tr>
         <td><%= comedian.name %></td>
         <td><%= comedian.age %></td>
+        <td>
+          <ul>
+            <% comedian.specials.find_each do |special| %>
+              <li><%= special.name %></li>
+            <% end %>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </tbody>
