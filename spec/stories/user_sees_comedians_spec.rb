@@ -51,5 +51,39 @@ describe 'User visits comedians page' do
 
       expect(page).to have_content('Average Age: 47.5')
     end
+
+    it 'should be able to only display comedians with a certain age' do
+      visit '/comedians?age=34'
+
+      within('#comedians') do
+        within('tbody') do
+          expect(all('tr').length).to be(2)
+
+          all('tr').each do |tr|
+            within(tr) do
+              tds = all('td')
+              expect(tds[1]).to have_content('34')
+            end
+          end
+
+        end
+      end
+
+      visit '/comedians?age=76'
+
+      within('#comedians') do
+        within('tbody') do
+          expect(all('tr').length).to be(1)
+
+          all('tr').each do |tr|
+            within(tr) do
+              tds = all('td')
+              expect(tds[1]).to have_content('76')
+            end
+          end
+
+        end
+      end
+    end
   end
 end
