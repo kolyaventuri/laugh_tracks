@@ -24,9 +24,18 @@ describe 'User visits comedians page' do
           within(all('tr').first) do
             tds = all('td')
             expect(tds.first).to have_content('Iliza Shlesinger')
-            expect(tds.last).to have_content('34')
+            expect(tds[1]).to have_content('34')
           end
         end
+      end
+    end
+
+    it 'should display the comedians specials' do
+      visit '/comedians'
+
+      within('#comedians tbody tr:first-child td:last-child') do
+        expect(find('ul')).to have_content('War Paint')
+        expect(find('ul')).to have_content('Freezing Hot')
       end
     end
   end
